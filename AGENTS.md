@@ -11,10 +11,14 @@
   - `contact.html` (Contact): email and links, plus a contact form validated with JavaScript that directs visitors to my email
 
 ## Design
-- Colors: background ✏️ #______, text ✏️ #______, accent ✏️ #______
-- Fonts: ✏️ [e.g., system sans-serif for everything]
-- Style: ✏️ [e.g., clean and modern, card layout for projects]
-- Use the same colors and fonts on every page. Text must have good contrast against the background.
+- Theme: Crimson Gothic.
+- Colors: background `#0b0b0d`; panels `#16161a`; borders `#2a2a30`; text `#ece8e4`; muted text `#a8a29e`; deep crimson `#8b0000` and `#c1121f` for borders, glows, and decorative accents; brighter red `#ff4d5a` for links, buttons, and small red text.
+- Fonts: use the Google Fonts `Cinzel` for headings and `Inter` for body text, with serif and sans-serif fallbacks respectively.
+- Style: dark, clean, gothic, and elegant, with smooth, subtle animations.
+- Use the same colors and fonts on every page. Keep all text at a minimum 4.5:1 contrast ratio against its background.
+- Disable all animation under `prefers-reduced-motion`.
+- Every interactive effect must also work with the keyboard.
+- Use no libraries; use vanilla JavaScript only.
 - Responsive: must work on phone and laptop with no sideways scrolling. Use media queries.
 
 ## Technology and structure
