@@ -3,12 +3,40 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Alexander Sohl</title>
+  <meta name="description" content="Alexander Sohl's personal portfolio.">
+  <title>Home | Alexander Sohl</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
 </head>
 <body>
-  <main>
-    <h1>Alexander Sohl</h1>
-    <p>I'm excited to learn more in my SDET class.</p>
+  <header class="site-header">
+    <a class="site-name" href="index.html">Alexander Sohl</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation menu">
+      <span class="menu-toggle__line"></span>
+      <span class="menu-toggle__line"></span>
+      <span class="menu-toggle__line"></span>
+    </button>
+    <nav class="site-nav" id="primary-navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="home-main">
+    <section class="intro" aria-labelledby="intro-title">
+      <p class="eyebrow">Welcome to my portfolio</p>
+      <h1 id="intro-title">Alexander Sohl</h1>
+      <p class="intro__copy">Hi, I’m Alexander Sohl, a sophomore on the SDET track at NJIT. I love programming, whether that’s building games or knocking out smaller one-off projects. Welcome to my portfolio, where you’ll find clips and images of some of my recent work!</p>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <p>© <span id="current-year">2026</span> Alexander Sohl</p>
+  </footer>
 </body>
 </html>
