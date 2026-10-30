@@ -698,6 +698,13 @@ p {
   border-bottom: 1px solid var(--color-crimson);
 }
 
+.projects-main .chapter-header {
+  position: relative;
+  z-index: 3;
+  isolation: isolate;
+  background: var(--color-background);
+}
+
 .chapter-header h2 {
   margin: 0 0 0.55rem;
   color: var(--color-text);
