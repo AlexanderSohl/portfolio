@@ -80,6 +80,7 @@ body {
   background-repeat: no-repeat;
   background-size: 18rem 6rem;
   image-rendering: pixelated;
+  transform-origin: center center;
 }
 
 .goob-wanderer__sprite.is-facing-left {
@@ -858,6 +859,95 @@ p {
   opacity: 1;
 }
 
+.chapter-visual-trigger {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  display: block;
+  overflow: hidden;
+  border: 0;
+  background: transparent;
+  opacity: 0;
+  pointer-events: none;
+  cursor: zoom-in;
+  transition: opacity 450ms ease;
+}
+
+.chapter-visual-trigger.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.chapter-visual-trigger .chapter-visual-media {
+  opacity: 1;
+  transition: none;
+}
+
+.project-image-trigger--inline {
+  width: 100%;
+  padding: 0;
+  display: block;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.project-image-trigger--inline img {
+  cursor: zoom-in;
+}
+
+.project-image-dialog {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+  overflow: hidden;
+  border: 0;
+  color: var(--color-text);
+  background: rgb(11 11 13 / 98%);
+}
+
+.project-image-dialog::backdrop {
+  background: rgb(0 0 0 / 92%);
+}
+
+.project-image-dialog__layout {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  justify-items: center;
+  gap: 0.75rem;
+}
+
+.project-image-dialog__close {
+  justify-self: end;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--color-crimson-bright);
+  border-radius: 0.45rem;
+  color: var(--color-text);
+  background: var(--color-surface);
+  cursor: pointer;
+}
+
+.project-image-dialog__image {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+}
+
+.projects-main .story-chapter.is-scrollytelling .chapter-visual:not(.chapter-title-visual) {
+  top: 50vh;
+  transform: translateY(-50%);
+}
+
 .chapter-visual figcaption {
   position: absolute;
   z-index: 1;
@@ -1029,6 +1119,12 @@ p {
     max-height: 11rem;
     margin-inline: auto;
     aspect-ratio: 16 / 7;
+    transform: none;
+  }
+
+  .projects-main .story-chapter.is-scrollytelling .chapter-visual:not(.chapter-title-visual) {
+    top: 4.75rem;
+    transform: none;
   }
 
   .story-chapter.is-scrollytelling .chapter-title-visual {

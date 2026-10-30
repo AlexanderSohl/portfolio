@@ -433,13 +433,21 @@ const enhanceStorytelling = () => {
         chapterVisual.dataset.progress = String(panelStep + 1);
       }
     } else {
-      chapter.querySelectorAll(".chapter-visual [data-visual-index]").forEach((image) => {
-        const isActive = Number(image.dataset.visualIndex) === stepIndex;
-        image.classList.toggle("is-active", isActive);
-        if (isActive) {
-          image.removeAttribute("aria-hidden");
+      chapter.querySelectorAll(".chapter-visual [data-visual-index]").forEach((trigger) => {
+        const isActive = Number(trigger.dataset.visualIndex) === stepIndex;
+        trigger.classList.toggle("is-active", isActive);
+        if (trigger.matches("button")) {
+          if (isActive) {
+            trigger.removeAttribute("aria-hidden");
+            trigger.removeAttribute("tabindex");
+          } else {
+            trigger.setAttribute("aria-hidden", "true");
+            trigger.tabIndex = -1;
+          }
+        } else if (isActive) {
+          trigger.removeAttribute("aria-hidden");
         } else {
-          image.setAttribute("aria-hidden", "true");
+          trigger.setAttribute("aria-hidden", "true");
         }
       });
     }
@@ -480,7 +488,19 @@ const enhanceStorytelling = () => {
           const visualMedia = media.cloneNode(true);
           visualMedia.classList.add("chapter-visual-media");
           visualMedia.dataset.visualIndex = step.dataset.imageIndex || "0";
-          visual.append(visualMedia);
+          if (media.tagName.toLowerCase() === "img") {
+            const imageTrigger = document.createElement("button");
+            imageTrigger.className = "chapter-visual-trigger project-image-trigger project-image-trigger--visual";
+            imageTrigger.type = "button";
+            imageTrigger.setAttribute("aria-label", `View full-screen image: ${media.getAttribute("alt") || "Project screenshot"}`);
+            imageTrigger.setAttribute("aria-hidden", "true");
+            imageTrigger.tabIndex = -1;
+            imageTrigger.dataset.visualIndex = step.dataset.imageIndex || "0";
+            imageTrigger.append(visualMedia);
+            visual.append(imageTrigger);
+          } else {
+            visual.append(visualMedia);
+          }
           const caption = fallbackFigure.querySelector("figcaption");
           if (caption && !visual.querySelector("figcaption")) {
             visual.append(caption.cloneNode(true));
@@ -552,6 +572,58 @@ const enhanceStorytelling = () => {
 
 reducedMotionQuery.addEventListener("change", enhanceStorytelling);
 enhanceStorytelling();
+
+const projectsMain = document.querySelector(".projects-main");
+if (projectsMain) {
+  const imageDialog = document.createElement("dialog");
+  imageDialog.className = "project-image-dialog";
+  imageDialog.setAttribute("aria-label", "Full-screen project image");
+  imageDialog.innerHTML = '<div class="project-image-dialog__layout"><button class="project-image-dialog__close" type="button">Close image</button><img class="project-image-dialog__image" alt=""></div>';
+  document.body.append(imageDialog);
+
+  const dialogImage = imageDialog.querySelector(".project-image-dialog__image");
+  const dialogClose = imageDialog.querySelector(".project-image-dialog__close");
+  let imageReturnFocus = null;
+
+  const openProjectImage = (trigger) => {
+    const image = trigger.querySelector("img");
+    if (!image) {
+      return;
+    }
+    imageReturnFocus = trigger;
+    dialogImage.src = image.currentSrc || image.src;
+    dialogImage.alt = image.alt;
+    imageDialog.showModal();
+    dialogClose.focus();
+  };
+
+  projectsMain.querySelectorAll(".story-image-fallback img").forEach((image) => {
+    const trigger = document.createElement("button");
+    trigger.className = "project-image-trigger project-image-trigger--inline";
+    trigger.type = "button";
+    trigger.setAttribute("aria-label", `View full-screen image: ${image.alt || "Project screenshot"}`);
+    image.before(trigger);
+    trigger.append(image);
+  });
+
+  projectsMain.addEventListener("click", (event) => {
+    const trigger = event.target.closest(".project-image-trigger");
+    if (trigger) {
+      openProjectImage(trigger);
+    }
+  });
+
+  dialogClose.addEventListener("click", () => imageDialog.close());
+  imageDialog.addEventListener("click", (event) => {
+    if (event.target === imageDialog) {
+      imageDialog.close();
+    }
+  });
+  imageDialog.addEventListener("close", () => {
+    imageReturnFocus?.focus();
+    imageReturnFocus = null;
+  });
+}
 
 const revealItems = Array.from(document.querySelectorAll("main section:not(.story-step), main article, .featured-card"));
 let revealObserver = null;
