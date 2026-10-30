@@ -680,7 +680,7 @@ const goobSprite = goob.querySelector(".goob-wanderer__sprite");
 const goobBubble = goob.querySelector(".goob-wanderer__bubble");
 const goobNames = ["Kipper", "Gunk", "Gizmo", "Bumble", "Tofu", "Drizzle", "Muffin", "Plop"];
 const walkFrames = [1, 0, 2, 0];
-let goobX = 0;
+let goobX = Math.max(0, (window.innerWidth - 96) / 2);
 let goobDirection = 1;
 let goobFrame = -1;
 let goobLastTime = 0;
@@ -722,7 +722,7 @@ const startGoobLoop = () => {
     const elapsed = goobLastTime ? Math.min((time - goobLastTime) / 1000, 0.1) : 0;
     goobLastTime = time;
     if (goobMoving) {
-      goobX += goobDirection * 42 * elapsed;
+      goobX += goobDirection * 60 * elapsed;
       const maxX = Math.max(0, window.innerWidth - 96);
       if (goobX >= maxX || goobX <= 0) {
         goobX = Math.min(maxX, Math.max(0, goobX));
