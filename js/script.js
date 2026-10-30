@@ -573,6 +573,45 @@ const enhanceStorytelling = () => {
 reducedMotionQuery.addEventListener("change", enhanceStorytelling);
 enhanceStorytelling();
 
+const projectChapters = Array.from(document.querySelectorAll(".projects-main [data-story-chapter]"));
+let projectVisualPositionFrame = 0;
+const updateProjectVisualPositions = () => {
+  if (projectVisualPositionFrame) {
+    return;
+  }
+  projectVisualPositionFrame = window.requestAnimationFrame(() => {
+    projectVisualPositionFrame = 0;
+    if (reducedMotionQuery.matches) {
+      return;
+    }
+    const smallScreen = window.matchMedia("(max-width: 44rem)").matches;
+
+    projectChapters.forEach((chapter) => {
+      const chapterHeader = chapter.querySelector(".chapter-header");
+      const visual = chapter.querySelector(".chapter-visual:not(.chapter-title-visual)");
+      if (!chapterHeader || !visual || !chapter.classList.contains("is-scrollytelling")) {
+        return;
+      }
+      const visualHeight = visual.getBoundingClientRect().height;
+      const headerBottom = chapterHeader.getBoundingClientRect().bottom;
+      let visualTop;
+      if (smallScreen) {
+        visualTop = Math.max(4.75 * 16, headerBottom + 12);
+      } else {
+        const safeTop = Math.max(12, headerBottom + 20);
+        visualTop = safeTop + Math.max(0, (window.innerHeight - safeTop - visualHeight) / 2);
+      }
+      visual.style.top = `${visualTop}px`;
+      visual.style.transform = "none";
+    });
+  });
+};
+
+window.addEventListener("scroll", updateProjectVisualPositions, { passive: true });
+window.addEventListener("resize", updateProjectVisualPositions, { passive: true });
+reducedMotionQuery.addEventListener("change", updateProjectVisualPositions);
+updateProjectVisualPositions();
+
 const projectsMain = document.querySelector(".projects-main");
 if (projectsMain) {
   const imageDialog = document.createElement("dialog");

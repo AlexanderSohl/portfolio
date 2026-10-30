@@ -949,7 +949,7 @@ p {
 
 .projects-main .story-chapter.is-scrollytelling .chapter-visual:not(.chapter-title-visual) {
   top: 50vh;
-  transform: translateY(-50%);
+  transform: none;
 }
 
 .chapter-visual figcaption {
