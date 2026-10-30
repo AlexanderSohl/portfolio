@@ -4,11 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Learn about Alexander Sohl's programming journey and education.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <title>About | Alexander Sohl</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/script.js" defer></script>
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"><span class="scroll-progress__fill"></span></div>
   <header class="site-header">
     <a class="site-name" href="index.html">Alexander Sohl</a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation menu">
@@ -27,30 +31,42 @@
     </nav>
   </header>
 
-  <main class="content-main">
+  <main class="content-main about-main">
     <h1>About Me</h1>
 
-    <section class="content-section" aria-labelledby="my-story">
-      <h2 id="my-story">My Story</h2>
-      <p>I started programming in middle school on Scratch, where I learned the basics and quickly wanted more. That led me to GameMaker, where I built my first few small games.</p>
-    </section>
-
-    <section class="content-section" aria-labelledby="education">
-      <h2 id="education">Education</h2>
-      <p>In high school, I attended a technical school with a computer science track, where I learned HTML, CSS, JavaScript, Java, C#, and more. We worked on everything from standalone mini programs, like calculators, to large-scale projects, like a 2D ASCII-art dungeon crawler built entirely in the Java console. That’s also where I discovered Unity and fell in love with it, building projects like a 2D take on Call of Duty Zombies before graduating.</p>
-      <p>Next, I spent some time at community college, where I got more hands-on with what programming can do. In my robotics course, I built the first unmanned vehicle in the course’s history to fully complete the required course.</p>
-      <p>Now I’m at NJIT, where I switched my major from Computer Science to the SDET track.</p>
-    </section>
-
-    <section class="content-section" aria-labelledby="working-on">
-      <h2 id="working-on">What I’m Working On</h2>
-      <p>I still make time for passion projects. Right now I’m working with friends on GOOB, a survival colony simulation game.</p>
-    </section>
-
-    <section class="content-section" aria-labelledby="where-headed">
-      <h2 id="where-headed">Where I’m Headed</h2>
-      <p>I hope to build a career that lets me keep expressing myself through projects and creations like these, and I see my degree from NJIT as the ticket to getting there.</p>
-    </section>
+    <article class="story-chapter about-story" data-story-chapter data-title-panel aria-label="About story">
+      <div class="chapter-layout">
+        <div class="chapter-steps">
+          <section class="story-step" data-story-step data-panel-label="Scratch">
+            <h2>Scratch</h2>
+            <p>I started programming in middle school on Scratch, where I learned the basics and quickly wanted more.</p>
+          </section>
+          <section class="story-step" data-story-step data-panel-label="GameMaker">
+            <h2>GameMaker</h2>
+            <p>That led me to GameMaker, where I built my first few small games.</p>
+          </section>
+          <section class="story-step" data-story-step data-panel-label="High School">
+            <h2>High School</h2>
+            <p>In high school, I attended a technical school with a computer science track, where I learned HTML, CSS, JavaScript, Java, C#, and more. We worked on everything from standalone mini programs, like calculators, to large-scale projects, like a 2D ASCII-art dungeon crawler built entirely in the Java console. That’s also where I discovered Unity and fell in love with it, building projects like a 2D take on Call of Duty Zombies before graduating.</p>
+          </section>
+          <section class="story-step" data-story-step data-panel-label="Warren County CC">
+            <h2>Warren County CC</h2>
+            <p>Next, I spent some time at community college, where I got more hands-on with what programming can do. In my robotics course, I built the first unmanned vehicle in the course’s history to fully complete the required course.</p>
+          </section>
+          <section class="story-step" data-story-step data-panel-label="NJIT">
+            <h2>NJIT</h2>
+            <p>Now I’m at NJIT, where I switched my major from Computer Science to the SDET track.</p>
+          </section>
+          <section class="story-step" data-story-step data-panel-label="What’s Next">
+            <h2>What’s Next</h2>
+            <h3>What I’m Working On</h3>
+            <p>I still make time for passion projects. Right now I’m working with friends on GOOB, a survival colony simulation game.</p>
+            <h3>Where I’m Headed</h3>
+            <p>I hope to build a career that lets me keep expressing myself through projects and creations like these, and I see my degree from NJIT as the ticket to getting there.</p>
+          </section>
+        </div>
+      </div>
+    </article>
   </main>
 
   <footer class="site-footer">

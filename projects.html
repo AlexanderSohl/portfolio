@@ -4,11 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Projects by Alexander Sohl, including games and a robotics rover.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <title>Projects | Alexander Sohl</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/script.js" defer></script>
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"><span class="scroll-progress__fill"></span></div>
   <header class="site-header">
     <a class="site-name" href="index.html">Alexander Sohl</a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation menu">
@@ -30,54 +34,113 @@
   <main class="content-main projects-main">
     <h1>Projects</h1>
 
-    <div class="project-grid">
-      <article class="project-card">
+    <article class="story-chapter" data-story-chapter>
+      <header class="chapter-header">
         <h2>GOOB</h2>
-        <figure class="project-visual" data-carousel aria-label="GOOB screenshots">
-          <div class="carousel-image-stage">
-            <img src="images/goob-1.jpg" alt="GOOB gameplay: colonists tending crop fields and working at stations beside a wooden bunkhouse full of named beds.">
-            <img src="images/goob-2.jpg" alt="GOOB gameplay: colonists mining rock and gathering resources on a forested coastline." hidden>
-            <img src="images/goob-3.jpg" alt="GOOB gameplay at night: colonists constructing a new building while the day counter shows Night 1, Spring, and the population reads 25 of 25." hidden>
-          </div>
-          <div class="carousel-controls">
-            <button class="carousel-button" type="button" data-previous aria-label="Previous GOOB image">Previous</button>
-            <span class="carousel-counter" data-counter aria-live="polite">1 / 3</span>
-            <button class="carousel-button" type="button" data-next aria-label="Next GOOB image">Next</button>
-          </div>
-        </figure>
-        <p>GOOB is a 2D colony survival simulation I’m building in Unity with friends. Players guide a colony of named villagers, called Goobs, as they farm, mine, gather resources, and construct new buildings through a day/night cycle and changing seasons. I’m combining hand-written code with AI-assisted development to produce a clean, polished final game.</p>
         <p class="project-tools"><strong>Tools:</strong> Unity, C#</p>
-        <p class="project-link"><a href="https://gup-entertainment.itch.io/goob" target="_blank" rel="noopener noreferrer">Play GOOB on itch.io</a></p>
-      </article>
+        <p><a href="https://gup-entertainment.itch.io/goob" target="_blank" rel="noopener noreferrer">Play GOOB on itch.io</a></p>
+      </header>
+      <div class="chapter-layout">
+        <div class="chapter-steps">
+          <section class="story-step" data-story-step data-image-index="0">
+            <h3>Build a colony</h3>
+            <p>GOOB is a 2D colony survival simulation I’m building in Unity with friends. Players guide a colony of named villagers, called Goobs.</p>
+            <figure class="story-image-fallback">
+              <img src="images/goob-1.jpg" alt="GOOB gameplay: colonists tending crop fields and working at stations beside a wooden bunkhouse full of named beds.">
+            </figure>
+          </section>
+          <section class="story-step" data-story-step data-image-index="1">
+            <h3>Gather and mine</h3>
+            <p>The Goobs farm, mine, and gather resources, then construct new buildings as the day/night cycle and seasons change.</p>
+            <figure class="story-image-fallback">
+              <img src="images/goob-2.jpg" alt="GOOB gameplay: colonists mining rock and gathering resources on a forested coastline.">
+            </figure>
+          </section>
+          <section class="story-step" data-story-step data-image-index="2">
+            <h3>Survive the night</h3>
+            <p>I’m combining hand-written code with AI-assisted development to produce a clean, polished final game.</p>
+            <figure class="story-image-fallback">
+              <img src="images/goob-3.jpg" alt="GOOB gameplay at night: colonists constructing a new building while the day counter shows Night 1, Spring, and the population reads 25 of 25.">
+            </figure>
+          </section>
+        </div>
+      </div>
+    </article>
 
-      <article class="project-card">
+    <article class="story-chapter" data-story-chapter>
+      <header class="chapter-header">
         <h2>Sect0r (in development, unreleased)</h2>
-        <figure class="project-visual" data-carousel aria-label="Sect0r screenshots">
-          <div class="carousel-image-stage">
-            <img src="images/sector-1.jpg" alt="Sect0r gameplay: first-person view holding a rifle in a low-poly forest, with ammo and health on the HUD.">
-            <img src="images/sector-2.jpg" alt="Sect0r gameplay: aiming down the sights of a rifle across an open field." hidden>
-            <img src="images/sector-3.jpg" alt="Sect0r inventory screen showing worn gear, weapon slots, and a backpack grid with items." hidden>
-          </div>
-          <div class="carousel-controls">
-            <button class="carousel-button" type="button" data-previous aria-label="Previous Sect0r image">Previous</button>
-            <span class="carousel-counter" data-counter aria-live="polite">1 / 3</span>
-            <button class="carousel-button" type="button" data-next aria-label="Next Sect0r image">Next</button>
-          </div>
-        </figure>
-        <p>A multiplayer survival extraction shooter I developed in Unity. Players load into a map, fight other players, and try to extract with loot to build up their base. I built core systems including host/client multiplayer, first-person gunplay with aim-down-sights and a recoil viewer for tuning weapons, and an inventory and crafting interface. The game was never finished, but it taught me a lot about networking and game systems.</p>
         <p class="project-tools"><strong>Tools:</strong> Unity, C#</p>
-      </article>
+      </header>
+      <div class="chapter-layout">
+        <div class="chapter-steps">
+          <section class="story-step" data-story-step data-image-index="0">
+            <h3>Drop in</h3>
+            <p>A multiplayer survival extraction shooter I developed in Unity. Players load into a map.</p>
+            <figure class="story-image-fallback">
+              <img src="images/sector-1.jpg" alt="Sect0r gameplay: first-person view holding a rifle in a low-poly forest, with ammo and health on the HUD.">
+            </figure>
+          </section>
+          <section class="story-step" data-story-step data-image-index="1">
+            <h3>Aim and fight</h3>
+            <p>Players fight other players using first-person gunplay with aim-down-sights and a recoil viewer for tuning weapons. I built host/client multiplayer.</p>
+            <figure class="story-image-fallback">
+              <img src="images/sector-2.jpg" alt="Sect0r gameplay: aiming down the sights of a rifle across an open field.">
+            </figure>
+          </section>
+          <section class="story-step" data-story-step data-image-index="2">
+            <h3>Loot and craft</h3>
+            <p>Players try to extract with loot to build up their base. I built an inventory and crafting interface. The game was never finished, but it taught me a lot about networking and game systems.</p>
+            <figure class="story-image-fallback">
+              <img src="images/sector-3.jpg" alt="Sect0r inventory screen showing worn gear, weapon slots, and a backpack grid with items.">
+            </figure>
+          </section>
+        </div>
+      </div>
+    </article>
 
-      <article class="project-card">
+    <article class="story-chapter rover-chapter" data-story-chapter data-rover-chapter>
+      <header class="chapter-header">
         <h2>Unmanned Rover</h2>
-        <figure class="project-visual">
-          <img src="images/rover-illustration.svg" alt="Illustration of a small autonomous rover navigating a maze.">
-          <figcaption>Illustration — original photos were lost.</figcaption>
-        </figure>
-        <p>A semester-long robotics project at Warren County Community College, where my team built a fully autonomous rover that could drive itself through a maze. I wrote its navigation in C++ by hand and spent the semester testing and rewriting that code while rebuilding and repairing the rover. In the end, we became the first team in the course’s history to fully complete the maze.</p>
         <p class="project-tools"><strong>Tools:</strong> C++, robotics hardware</p>
-      </article>
-    </div>
+      </header>
+      <div class="chapter-layout">
+        <div class="chapter-steps">
+          <section class="story-step" data-story-step data-image-index="0">
+            <h3>Build an autonomous rover</h3>
+            <p>A semester-long robotics project at Warren County Community College, where my team built a fully autonomous rover that could drive itself through a maze.</p>
+            <figure class="story-image-fallback">
+              <svg class="rover-maze" viewBox="0 0 800 450" role="img" aria-label="Illustration of a small autonomous rover navigating a maze.">
+                <rect width="800" height="450" rx="18" fill="#101014"/>
+                <g fill="none" stroke="#526174" stroke-linecap="round" stroke-linejoin="round" stroke-width="14">
+                  <path d="M90 60H710V390H90Z"/>
+                  <path d="M90 170h100m90 0h60m90 0h40m70 0h170"/>
+                  <path d="M90 270h530"/>
+                  <path d="M300 60v110m0 100v0"/>
+                  <path d="M560 60v110m0 100v120"/>
+                </g>
+                <path class="rover-route-base" d="M130 120H220V220H370V120H500V220H650V340" fill="none" stroke="#2a2a30" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                <path data-rover-route d="M130 120H220V220H370V120H500V220H650V340" fill="none" stroke="#ff4d5a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                <g data-rover-marker transform="translate(130 120)">
+                  <rect x="-18" y="-12" width="36" height="24" rx="6" fill="#ece8e4" stroke="#c1121f" stroke-width="4"/>
+                  <circle cx="-11" cy="14" r="5" fill="#ece8e4"/>
+                  <circle cx="11" cy="14" r="5" fill="#ece8e4"/>
+                  <path d="M0-12v-10" stroke="#ff4d5a" stroke-width="4" stroke-linecap="round"/>
+                </g>
+              </svg>
+              <figcaption>Illustration — original photos were lost.</figcaption>
+            </figure>
+          </section>
+          <section class="story-step" data-story-step data-image-index="0">
+            <h3>Test and rebuild</h3>
+            <p>I wrote its navigation in C++ by hand and spent the semester testing and rewriting that code while rebuilding and repairing the rover.</p>
+          </section>
+          <section class="story-step" data-story-step data-image-index="0">
+            <h3>First team in the course’s history to finish the maze.</h3>
+          </section>
+        </div>
+      </div>
+    </article>
   </main>
 
   <footer class="site-footer">

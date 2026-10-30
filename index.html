@@ -4,11 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Alexander Sohl's personal portfolio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <title>Home | Alexander Sohl</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/script.js" defer></script>
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"><span class="scroll-progress__fill"></span></div>
   <header class="site-header">
     <a class="site-name" href="index.html">Alexander Sohl</a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation menu">
@@ -27,12 +31,54 @@
     </nav>
   </header>
 
-  <main class="home-main">
-    <section class="intro" aria-labelledby="intro-title">
+  <main class="home-main hub-main">
+    <section class="intro hub-hero" aria-labelledby="intro-title">
       <p class="eyebrow">Welcome to my portfolio</p>
       <h1 id="intro-title">Alexander Sohl</h1>
+      <p class="typewriter-line" aria-hidden="true"><span data-typewriter>I build games.</span><span class="typewriter-cursor">|</span></p>
+      <p class="visually-hidden">I build games. I test software. I write C#, Java, and JavaScript. I’m an SDET student at NJIT.</p>
       <p class="intro__copy">Hi, I’m Alexander Sohl, a sophomore on the SDET track at NJIT. I love programming, whether that’s building games or knocking out smaller one-off projects. Welcome to my portfolio, where you’ll find clips and images of some of my recent work!</p>
     </section>
+
+    <section class="featured-projects" aria-labelledby="featured-projects-title">
+      <h2 id="featured-projects-title">Featured Projects</h2>
+      <div class="featured-grid">
+        <a class="featured-card" href="projects.html">
+          <img src="images/goob-1.jpg" alt="GOOB gameplay: colonists tending crop fields and working at stations beside a wooden bunkhouse full of named beds.">
+          <span class="featured-card__copy">
+            <span class="featured-card__title">GOOB</span>
+            <span class="featured-card__summary">A 2D colony survival simulation built with friends in Unity.</span>
+          </span>
+        </a>
+        <a class="featured-card" href="projects.html">
+          <img src="images/sector-1.jpg" alt="Sect0r gameplay: first-person view holding a rifle in a low-poly forest, with ammo and health on the HUD.">
+          <span class="featured-card__copy">
+            <span class="featured-card__title">Sect0r</span>
+            <span class="featured-card__summary">A Unity multiplayer survival extraction shooter.</span>
+          </span>
+        </a>
+        <a class="featured-card" href="projects.html">
+          <img src="images/rover-illustration.svg" alt="Illustration of a small autonomous rover navigating a maze.">
+          <span class="featured-card__copy">
+            <span class="featured-card__title">Unmanned Rover</span>
+            <span class="featured-card__summary">An autonomous C++ rover built to navigate a maze.</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="top-skills" aria-labelledby="top-skills-title">
+      <h2 id="top-skills-title">Top Skills</h2>
+      <ul class="skill-tags">
+        <li><a href="skills.html">Java</a></li>
+        <li><a href="skills.html">C#</a></li>
+        <li><a href="skills.html">JavaScript</a></li>
+        <li><a href="skills.html">Unity</a></li>
+        <li><a href="skills.html">Testing</a></li>
+      </ul>
+    </section>
+
+    <p class="hub-contact-wrap"><a class="hub-contact" href="contact.html">Get in touch</a></p>
   </main>
 
   <footer class="site-footer">
