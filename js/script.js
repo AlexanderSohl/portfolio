@@ -679,6 +679,7 @@ const goobButton = goob.querySelector(".goob-wanderer__button");
 const goobSprite = goob.querySelector(".goob-wanderer__sprite");
 const goobBubble = goob.querySelector(".goob-wanderer__bubble");
 const goobNames = ["Kipper", "Gunk", "Gizmo", "Bumble", "Tofu", "Drizzle", "Muffin", "Plop"];
+const goobName = goobNames[Math.floor(Math.random() * goobNames.length)];
 const walkFrames = [1, 0, 2, 0];
 let goobX = Math.max(0, (window.innerWidth - 96) / 2);
 let goobDirection = 1;
@@ -695,11 +696,24 @@ const setGoobFrame = (frame) => {
   goobSprite.classList.toggle("is-facing-left", goobDirection < 0);
 };
 
+const positionGoobBubble = () => {
+  if (goobBubble.hidden) {
+    return;
+  }
+  const bubbleWidth = goobBubble.getBoundingClientRect().width;
+  const bubbleLeft = Math.min(
+    window.innerWidth - bubbleWidth - 8,
+    Math.max(8, goobX + 48 - bubbleWidth / 2)
+  );
+  goobBubble.style.left = `${bubbleLeft - goobX}px`;
+  goobBubble.style.transform = "none";
+};
+
 const positionGoob = () => {
   const maxX = Math.max(0, window.innerWidth - 96);
   goobX = Math.min(maxX, Math.max(0, goobX));
   goob.style.left = `${goobX}px`;
-  goob.classList.toggle("goob-wanderer--near-right", goobX > maxX / 2);
+  positionGoobBubble();
 };
 
 const stopGoobLoop = () => {
@@ -764,9 +778,9 @@ const startGoobLoop = () => {
 };
 
 goobButton.addEventListener("click", () => {
-  const name = goobNames[Math.floor(Math.random() * goobNames.length)];
-  goobBubble.textContent = `${name} says hi!`;
+  goobBubble.textContent = `${goobName} says hi!`;
   goobBubble.hidden = false;
+  positionGoobBubble();
   goob.classList.remove("is-hopping");
   void goob.offsetWidth;
   goob.classList.add("is-hopping");

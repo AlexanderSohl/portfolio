@@ -90,7 +90,7 @@ body {
 .goob-wanderer__bubble {
   position: absolute;
   bottom: calc(100% - 0.25rem);
-  left: 0.25rem;
+  left: 50%;
   width: max-content;
   max-width: 12rem;
   padding: 0.4rem 0.7rem;
@@ -101,16 +101,13 @@ body {
   box-shadow: 0 0.3rem 1rem rgb(0 0 0 / 45%), 0 0 0.8rem rgb(139 0 0 / 20%);
   font-size: 0.85rem;
   line-height: 1.35;
+  text-align: center;
+  transform: translateX(-50%);
   pointer-events: none;
 }
 
 .goob-wanderer__bubble[hidden] {
   display: none;
-}
-
-.goob-wanderer--near-right .goob-wanderer__bubble {
-  right: 0.25rem;
-  left: auto;
 }
 
 .goob-wanderer.is-hopping {
