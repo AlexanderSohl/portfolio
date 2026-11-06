@@ -1,7 +1,7 @@
 ﻿# Portfolio Website Instructions
 
 ## About this site
-- Personal portfolio for Alexander Sohl, a ✏️ [your major] student at NJIT.
+- Personal portfolio for Alexander Sohl, an SDET (Software Development Engineering in Test) student at NJIT.
 - Purpose: show my projects, skills, and experience to recruiters and classmates.
 - Pages (same navigation on every page):
   - `index.html` (Home): short intro and links to the other pages
