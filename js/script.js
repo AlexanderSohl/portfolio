@@ -427,10 +427,13 @@ const enhanceStorytelling = () => {
     const chapterVisual = chapter.querySelector(".chapter-visual");
     if (chapter.hasAttribute("data-title-panel")) {
       const panelName = chapterVisual?.querySelector("[data-panel-name]");
-      const panelStep = Array.from(chapter.querySelectorAll("[data-story-step]")).indexOf(step);
+      const panelSteps = Array.from(chapter.querySelectorAll("[data-story-step]"));
+      const panelStep = panelSteps.indexOf(step);
       if (panelName) {
         panelName.textContent = step.dataset.panelLabel || step.querySelector("h2, h3")?.textContent || "";
         chapterVisual.dataset.progress = String(panelStep + 1);
+        const progressPercent = ((panelStep + 1) / panelSteps.length) * 100;
+        chapterVisual.style.setProperty("--chapter-progress", `${progressPercent}%`);
       }
     } else {
       chapter.querySelectorAll(".chapter-visual [data-visual-index]").forEach((trigger) => {

@@ -868,20 +868,12 @@ p {
   top: 0;
   left: -1px;
   width: 4px;
-  height: 0;
+  height: var(--chapter-progress, 0%);
   border-radius: 999px;
   background: var(--color-accent);
   box-shadow: 0 0 0.8rem rgb(193 18 31 / 75%);
   transition: height 450ms ease;
 }
-
-.chapter-title-visual[data-progress="1"] .chapter-progress-fill { height: 14.286%; }
-.chapter-title-visual[data-progress="2"] .chapter-progress-fill { height: 28.572%; }
-.chapter-title-visual[data-progress="3"] .chapter-progress-fill { height: 42.858%; }
-.chapter-title-visual[data-progress="4"] .chapter-progress-fill { height: 57.144%; }
-.chapter-title-visual[data-progress="5"] .chapter-progress-fill { height: 71.43%; }
-.chapter-title-visual[data-progress="6"] .chapter-progress-fill { height: 85.716%; }
-.chapter-title-visual[data-progress="7"] .chapter-progress-fill { height: 100%; }
 
 .chapter-visual-media {
   position: absolute;
