@@ -875,12 +875,13 @@ p {
   transition: height 450ms ease;
 }
 
-.chapter-title-visual[data-progress="1"] .chapter-progress-fill { height: 16.667%; }
-.chapter-title-visual[data-progress="2"] .chapter-progress-fill { height: 33.334%; }
-.chapter-title-visual[data-progress="3"] .chapter-progress-fill { height: 50%; }
-.chapter-title-visual[data-progress="4"] .chapter-progress-fill { height: 66.667%; }
-.chapter-title-visual[data-progress="5"] .chapter-progress-fill { height: 83.334%; }
-.chapter-title-visual[data-progress="6"] .chapter-progress-fill { height: 100%; }
+.chapter-title-visual[data-progress="1"] .chapter-progress-fill { height: 14.286%; }
+.chapter-title-visual[data-progress="2"] .chapter-progress-fill { height: 28.572%; }
+.chapter-title-visual[data-progress="3"] .chapter-progress-fill { height: 42.858%; }
+.chapter-title-visual[data-progress="4"] .chapter-progress-fill { height: 57.144%; }
+.chapter-title-visual[data-progress="5"] .chapter-progress-fill { height: 71.43%; }
+.chapter-title-visual[data-progress="6"] .chapter-progress-fill { height: 85.716%; }
+.chapter-title-visual[data-progress="7"] .chapter-progress-fill { height: 100%; }
 
 .chapter-visual-media {
   position: absolute;

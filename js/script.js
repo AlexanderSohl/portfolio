@@ -327,7 +327,7 @@ if (typewriterElement) {
     }
 
     const phrase = typewriterPhrases[phraseIndex];
-    let delay = 82;
+    let delay = 72;
 
     if (isDeleting) {
       if (characterIndex === 0) {
@@ -337,14 +337,14 @@ if (typewriterElement) {
       } else {
         characterIndex -= 1;
         typewriterElement.textContent = phrase.slice(0, characterIndex);
-        delay = 42;
+        delay = 36;
       }
     } else if (characterIndex < phrase.length) {
       characterIndex += 1;
       typewriterElement.textContent = phrase.slice(0, characterIndex);
     } else {
       isDeleting = true;
-      delay = 1350;
+      delay = 1200;
     }
 
     typewriterTimer = window.setTimeout(typeNextCharacter, delay);
