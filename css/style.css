@@ -1267,3 +1267,152 @@ p {
     display: none;
   }
 }
+
+/* ---------- Playable games (links to playlooter.pages.dev) ---------- */
+.site-nav a.nav-play {
+  padding: 0.4rem 0.95rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 999px;
+  color: var(--color-accent);
+  background: rgb(193 18 31 / 12%);
+  box-shadow: 0 0 0.9rem rgb(193 18 31 / 30%);
+  transition: color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.site-nav a.nav-play::after {
+  display: none;
+}
+
+.site-nav a.nav-play:hover,
+.site-nav a.nav-play:focus-visible {
+  color: var(--color-background);
+  background: var(--color-accent);
+  box-shadow: 0 0 1.3rem rgb(193 18 31 / 55%);
+}
+
+.play-button {
+  min-height: 3rem;
+  padding: 0.75rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 0.45rem;
+  color: var(--color-background);
+  background: var(--color-accent);
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  animation: play-glow 2.8s ease-in-out infinite;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.play-button::before {
+  width: 0;
+  height: 0;
+  border-top: 0.42em solid transparent;
+  border-bottom: 0.42em solid transparent;
+  border-left: 0.68em solid currentColor;
+  content: "";
+}
+
+.play-button:hover,
+.play-button:focus-visible {
+  color: var(--color-background);
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+
+@keyframes play-glow {
+  0%, 100% { box-shadow: 0 0 0.9rem rgb(193 18 31 / 30%); }
+  50% { box-shadow: 0 0 1.8rem rgb(255 77 90 / 55%); }
+}
+
+.play-badge {
+  width: fit-content;
+  margin: 0 0 0.6rem;
+  padding: 0.15rem 0.7rem;
+  border: 1px solid var(--color-crimson-bright);
+  border-radius: 999px;
+  color: var(--color-accent);
+  background: #201317;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.chapter-header .play-badge {
+  margin: 0 0 0.6rem;
+  color: var(--color-accent);
+}
+
+.chapter-header .play-actions {
+  margin-top: 1rem;
+}
+
+.play-games {
+  margin: clamp(2.5rem, 6vw, 4rem) auto 0;
+  padding: clamp(1.4rem, 4vw, 2.25rem);
+  border: 1px solid var(--color-crimson-bright);
+  border-radius: 1rem;
+  background:
+    radial-gradient(ellipse at 15% 0%, rgb(193 18 31 / 20%), transparent 60%),
+    linear-gradient(145deg, rgb(22 22 26 / 97%), rgb(16 15 18 / 97%));
+  box-shadow: 0 1rem 2.5rem rgb(0 0 0 / 35%), 0 0 1.6rem rgb(139 0 0 / 22%);
+}
+
+.play-games__head {
+  margin-bottom: 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.play-games h2 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  letter-spacing: 0.025em;
+  text-shadow: 0 0 1.2rem rgb(193 18 31 / 30%);
+}
+
+.play-games__copy {
+  max-width: 36rem;
+  margin: 0.4rem 0 0;
+  color: var(--color-muted);
+}
+
+.play-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+.play-card img {
+  aspect-ratio: 16 / 7;
+}
+
+.play-card__cta {
+  margin-top: 0.35rem;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+@media (max-width: 44rem) {
+  .site-nav a.nav-play {
+    margin-top: 0.35rem;
+    text-align: center;
+  }
+
+  .play-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .play-games__head .play-button {
+    width: 100%;
+  }
+}
